@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <title>Inicio de sesión</title>
+</head>
+<body>
+    {% if form.errors %}
+    <div class="error-message">
+        <strong>Por favor, corrige los siguientes errores:</strong>
+        <ul>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <div class="container">
+        <h1>Inicio de sesión</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}<br>
+            <a href="{% url 'registro' %}">No tienes cuenta?</a>
+            <!--<a href="">Restablecer contraseña</a>-->
+            <button id="submit-btn" type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

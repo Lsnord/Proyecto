@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia&display=swap" rel="stylesheet">
+    <!--iconos awesome fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/historial.css' %}">
+    <title>Historial</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="ckbox">
+            <label for="ckbox" class="drawer">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </label>
+            <h1>L'AMIGO</h1>
+            <ul class="menu-box">
+                {% if user.is_authenticated and not user.is_staff %}
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'seccion_mascota' %}" id="amigo">Amigo</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                <li><a href="{% url 'soporte' %}">Soporte</a></li>     
+                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="{% url 'index' %}">Inicio</a></li>   
+                    <li><a href="{% url 'login2' %}">Iniciar sesión</a></li>
+                    <li><a href="{% url 'registro' %}">Registrarse</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                    <li><a href="{% url 'soporte' %}">Soporte</a></li>                
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!--Historial-->
+
+    <div class="history-container">
+        <div class="boxes">
+            <h2>Gastos</h2>
+            {% if user_bills %}
+                <ul>
+                    {% for bill in user_bills %}
+                        <li>
+                            <div class="bills">
+                                Nombre: {{ bill.nombre }}
+                            </div>
+
+                            <div class="bills">
+                                Tipo: {{ bill.tipos }}
+                            </div>
+
+                            <div class="bills">
+                                Fecha: {{ bill.fecha }} 
+                            </div>
+
+                            <div class="bills">
+                                Costo: {{ bill.costo }}
+                            </div><br>
+
+                            <div class="bills">
+                                Mascota: {{ bill.mascota.nombre_mascota }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="descripcion-nula">No hay registros de gastos.</p>
+            {% endif %}
+
+            <div class="center-container">
+                <a href="#">Editar Gasto</a>
+            </div>
+        </div>
+
+        <div class="boxes">
+            <h2>Citas</h2>
+            {% if user_cites %}
+                <ul>
+                    {% for cite in user_cites %}
+                        <li>
+                            <div class="cites">
+                                Nombre: {{ cite.nombre }}
+                            </div>
+
+                            <div class="cites">
+                                Tipo: {{ cite.tipos }}
+                            </div>
+
+                            <div class="cites">
+                                Fecha: {{ cite.fecha }}
+                            </div>
+
+                            <div class="cites">
+                                Costo: {{ cite.costo }}
+                            </div><br>
+
+                            <div class="cites">
+                                Mascota: {{ cite.mascota.nombre_mascota }}<br><br>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="descripcion-nula">No hay registros de citas.</p>
+            {% endif %}
+            
+            <div class="center-container">
+                <a href="#">Editar Citas</a>
+            </div>
+        </div>
+
+        <div class="boxes">
+            <h2>Examenes</h2>
+            {% if user_examns %}
+                <ul>
+                    {% for examn in user_examns %}
+                        <li>
+                            <div class="examns">
+                                Nombre: {{ examn.nombre }}
+                            </div>
+
+
+                            <div class="examns">
+                                Tipo: {{ examn.tipos }}
+                            </div>
+
+                            <div class="examns">
+                                Fecha: {{ examn.fecha }}
+                            </div>
+
+                            <div class="examns">
+                                Costo: {{ examn.costo }}
+                            </div><br>
+
+                            <div class="examns">
+                                Mascota: {{ examn.mascota.nombre_mascota }}<br><br>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="descripcion-nula">No hay registros de examenes.</p>
+            {% endif %}
+            
+            <div class="center-container">
+                <a href="">Editar Examenes</a>
+            </div>
+        </div>
+
+        <div class="boxes">
+            <h2>Tratamientos</h2>
+            {% if user_treatments %}
+                <ul>
+                    {% for treatment in user_treatments %}
+                        <li>
+                            <div class="treatments">
+                                Nombre: {{ treatment.nombre }}
+                            </div>
+
+                            <div class="treatments">
+                                Fecha: {{ treatment.fecha }}
+                            </div>
+
+                            <div class="treatments">
+                                Costo: {{ treatment.costo }}
+                            </div><br>
+
+                            <div class="treatments">
+                                Mascota: {{ treatment.mascota.nombre_mascota }}<br><br>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="descripcion-nula">No hay registros de tratamientos.</p>
+            {% endif %}
+            
+            <div class="center-container">
+                <a href="">Editar Tratamientos</a>
+            </div>
+        </div>
+
+        <div class="boxes">
+            <h2>Terapias</h2>
+            {% if user_terapies %}
+                <ul>
+                    {% for terapie in user_terapies %}
+                        <li>
+                            <div class="terapies">
+                                Nombre: {{ terapie.nombre }}
+                            </div>
+
+                            <div class="terapies">
+                                Fecha: {{ terapie.fecha }}
+                            </div>
+
+                            <div class="terapies">
+                                Costo: {{ terapie.costo }}
+                            </div><br>
+
+                            <div class="terapies">
+                                Mascota: {{ terapie.mascota.nombre_mascota }}<br><br>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="descripcion-nula">No hay registros de terapias.</p>
+            {% endif %}
+            
+            <div class="center-container">
+                <a href="">Editar Terapias</a>
+            </div>
+        </div>
+
+        <div class="boxes">
+            <h2>Cirugias</h2>
+            {% if user_surgerys %}
+                <ul>
+                    {% for surgery in user_surgerys %}
+                        <li>
+                            <div class="surgerys">
+                                Nombre: {{ surgery.nombre }}
+                            </div>
+
+                            <div class="surgerys">
+                                Fecha: {{ surgery.fecha }}
+                            </div>
+
+                            <div class="surgerys">
+                                Costo: {{ surgery.costo }}
+                            </div><br>
+
+                            <div class="surgerys">
+                                Mascota: {{ surgery.mascota.nombre_mascota }}<br><br>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="descripcion-nula">No hay registros de cirugias.</p>
+            {% endif %}
+            
+            <div class="center-container">
+                <a href="">Editar Cirugias</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Compañia</h4>
+                    <ul>
+                        <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                        <li><a href="{% url 'servicios' %}">Nuestros servicios</a></li>
+                        <li><a href="{% url 'politicas' %}">Politicas de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="{% url 'preguntas' %}">Preguntas</a></li>
+                        <li><a href="{% url 'soporte' %}">Soporte Tecnico</a></li>
+                        <li><a href="{% url 'informes' %}">Reporte de fallas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Noticias</h4>
+                    <ul>
+                        <li><a href="{% url 'avisos' %}">Avisos</a></li>
+                        <li><a href="{% url 'actualizaciones' %}">Actualizaciones</a></li>
+                        <li><a href="{% url 'arreglos' %}">Arreglos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Apoyanos</h4>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@Lamigo2023" target="_blank" id="youtube"><i id="youtube" class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/Lamigo0010" target="_blank" id="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.patreon.com/Lamigo" target="_blank" id="patreon"><i class="fab fa-patreon"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+    <title>Registro</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro</h1>
+
+        <div class="error-message">
+            {% if form.errors %}
+                <strong>Por favor, corrige los siguientes errores:</strong>
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <!-- Renderizar campos del formulario individualmente -->
+            <label for="{{ form.username.id_for_label }}">Nombre</label>
+            {{ form.username }}
+            
+            <label for="{{ form.last_name.id_for_label }}">Apellido</label>
+            {{ form.last_name }}
+            
+            <label for="{{ form.genero.id_for_label }}">Género</label>
+            {{ form.genero }}
+            
+            <label for="{{ form.age.id_for_label }}">Edad</label>
+            {{ form.age }}
+            
+            <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
+            {{ form.email }}
+            
+            <label for="{{ form.password1.id_for_label }}">Contraseña</label>
+            {{ form.password1 }}
+            
+            <label for="{{ form.password2.id_for_label }}">Confirmar contraseña</label>
+            {{ form.password2 }}
+            
+            <a href="{% url 'login2' %}">Ya tienes cuenta?<br>Click Aqui</a><br>
+
+            <button id="submit-btn" type="submit">Registrarse</button>
+        </form>
+    </div>
+</body>
+</html>

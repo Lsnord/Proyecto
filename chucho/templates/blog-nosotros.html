@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia&display=swap" rel="stylesheet">
+    <!--iconos awesome fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog-nosotros.css' %}">
+    <title>Sobre Nosotros</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="ckbox">
+            <label for="ckbox" class="drawer">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </label>
+            <h1>L'AMIGO</h1>
+            <ul class="menu-box">
+                {% if user.is_authenticated and not user.is_staff %}
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'seccion_mascota' %}" id="amigo">Amigo</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                <li><a href="{% url 'soporte' %}">Soporte</a></li>     
+                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="{% url 'index' %}">Inicio</a></li>   
+                    <li><a href="{% url 'login2' %}">Iniciar sesión</a></li>
+                    <li><a href="{% url 'registro' %}">Registrarse</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                    <li><a href="{% url 'soporte' %}">Soporte</a></li>                
+                {% endif %}
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-cover">
+        <div class="container-cover-info">
+            <h1>Nosotros</h1>
+            <H2>Te invitamos a contarte nuestra historia</H2>
+        </div>
+    </div>
+
+    <div class="container-content">
+        <article>
+            <h1>¿Como surgio?</h1>
+            <p>
+                El 17 de abril de 2022 marcó un hito significativo en el mundo del cuidado de mascotas con 
+                la creación de Lamigo. La visión de Lamigo surgió de la unión de mentes innovadoras y 
+                apasionadas por el bienestar de los animales. Fundada por un equipo de expertos en 
+                veterinaria y tecnología, Lamigo se propuso transformar la manera en que las personas 
+                gestionan la información crucial de sus mascotas.<br><br>
+
+                La plataforma Lamigo nació de la necesidad de simplificar y potenciar 
+                la experiencia de cuidar a nuestros fieles compañeros. En un mundo donde
+                el tiempo es valioso y las mascotas son miembros queridos 
+                de la familia, Lamigo se propuso crear una herramienta eficiente que optimizara 
+                la gestión del tiempo y del presupuesto asociado al cuidado de las mascotas.<br><br>
+
+                Desde su creación, Lamigo se ha esforzado por ser un referente en el cuidado de mascotas, 
+                ofreciendo no solo una solución, sino una revolución en la forma en que las personas 
+                se relacionan con la salud y el bienestar de sus animales. La plataforma ha demostrado 
+                ser una aliada confiable para los dueños de mascotas al proporcionar información organizada 
+                y accesible, permitiendo tomar decisiones informadas y cuidar de manera efectiva de sus compañeros peludos.
+                En Lamigo, la gestión de la información de las mascotas se ha convertido en una experiencia intuitiva y gratificante. La plataforma ofrece la libertad de tener toda la información relevante al alcance de las manos, facilitando así el disfrute pleno de la compañía de las mascotas.
+                Desde su creación, Lamigo ha evolucionado continuamente, adaptándose a las necesidades cambiantes de la comunidad de amantes de los animales. La fecha emblemática del 17 de abril de 2022 marca el comienzo de una nueva era en el cuidado de mascotas, donde Lamigo lidera el camino hacia un enfoque más eficiente, efectivo y amoroso para garantizar el bienestar de nuestros amigos peludos. ¡Bienvenido a Lamigo, donde la pasión por las mascotas se encuentra con la innovación desde el 17 de abril de 2022!
+            </p>
+
+            <h1>Fundación</h1>
+            <p>
+                La Fundación Lamigo fue establecida el 17 de abril de 2023 con un propósito claro y apasionado:
+                 transformar la manera en que las personas cuidan y se relacionan con sus mascotas. 
+                 Surgió de la visión de un grupo de amantes de los animales y emprendedores comprometidos 
+                 con mejorar la calidad de vida de los amigos peludos en todo el mundo.<br><br>
+
+                El catalizador de la fundación fue la creencia compartida de que el cuidado de las mascotas 
+                va más allá de las necesidades básicas; es una experiencia enriquecedora que merece
+                ser simplificada, optimizada y celebrada. La Fundación Lamigo nació con la misión de promover 
+                la innovación en el cuidado de mascotas, brindando soluciones prácticas y emocionalmente 
+                satisfactorias para los dueños de mascotas.Desde su inicio, la fundación se ha dedicado a 
+                la investigación continua, el desarrollo tecnológico y la creación de una comunidad global 
+                unida por el amor a los animales. El compromiso con la excelencia y el bienestar animal ha 
+                sido el motor que impulsa las iniciativas de la Fundación Lamigo, convirtiéndola en un faro 
+                de inspiración y cambio positivo en el mundo de la atención a las mascotas.En estos años desde 
+                su fundación, la Fundación Lamigo ha logrado hitos significativos, 
+                desde el lanzamiento de innovadoras herramientas en línea hasta programas de 
+                concienciación sobre el cuidado responsable de mascotas. Su legado es una historia 
+                de dedicación apasionada a mejorar la vida de los animales y fortalecer los vínculos 
+                entre humanos y mascotas.
+            </p>
+
+            <img src="{% static 'blog/post-fundacion.jpg' %}" alt="">
+
+            <section id="blog">
+                <div class="blog-heading">
+                    <h3>Nuestro Equipo</h3>
+                </div>
+            </section>
+
+            <div class="blog-container">
+        
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="{% static 'blog/col2.jpg' %}" class="developer-icon" alt="">
+                    </div>
+        
+                    <div class="blog-text">
+                        <a href="#">Leer mas</a>
+                    </div>
+                </div>
+        
+        
+            </div>
+        </article>
+    
+        <div class="container-aside">
+
+            <aside>
+                <img src="{% static 'blog/aside-consejos.jpg' %}" alt="">
+                <h2>Consejos</h2>
+                <p>
+                    Aqui se te indicara las instrucciones
+                    de la app.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+            <aside>
+                <img src="{% static 'blog/aside-noticias.jpg' %}" alt="">
+                <h2>Noticias</h2>
+                <p>
+                    Enterate sobre las ultimas novedades
+                    de Lamigo.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+            <aside>
+                <img src="{% static 'blog/aside-actualizaciones.jpg' %}" alt="">
+                <h2>Actualizaciones</h2>
+                <p>
+                    Enterate sobre las ultimas Actualizaciones
+                    y contenido agregado.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+            <aside>
+                <img src="{% static 'blog/aside-cambios.jpg' %}" alt="">
+                <h2>Historial de cambios</h2>
+                <p>
+                    Informate de todos los cambios que ha
+                    tenido Lamigo.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+        </div>
+
+    </div>
+
+    <!--Sobre Nosotros-->
+
+    <section id="blog">
+        <div class="blog-heading">
+            <h3>L'AMIGO</h3>
+        </div>
+    </section>
+
+    <div class="blog-container">
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="{% static 'blog/about-about.jpg' %}" alt="">
+            </div>
+
+            <div class="blog-text">
+                <a href="#" class="blog-title">¿Quienes Somos?</a>
+                <p>
+                    Lamigo se especializa en ofrecer una plataforma web única 
+                    diseñada para simplificar y potenciar la gestión de la 
+                    información crucial de tus mascotas. Nuestra pasión 
+                    por el cuidado de los animales impulsa nuestro compromiso 
+                    de motivar y respaldar a los dueños de mascotas.
+                </p>
+                <a href="{% url 'nosotros' %}">Leer mas</a>
+            </div>
+        </div>
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="{% static 'blog/about-trabajo.jpg' %}" alt="">
+            </div>
+
+            <div class="blog-text">
+                <a href="#" class="blog-title">Trabaja con Nosotros</a>
+                <p>
+                    Comunicate con Nosotros para aplicar a vacantes
+                </p>
+                <a href="#">Leer mas</a>
+            </div>
+        </div>
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="{% static 'blog/about-contacto.jpg' %}" alt="">
+            </div>
+
+            <div class="blog-text">
+                <a href="#" class="blog-title">Contactanos</a>
+                <p>
+                    Nos puedes escribir para sugerencias o reportes
+                    de errores que haya en la plataforma
+                </p>
+                <a href="{% url 'contacto' %}">Leer mas</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Compañia</h4>
+                    <ul>
+                        <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                        <li><a href="{% url 'servicios' %}">Nuestros servicios</a></li>
+                        <li><a href="{% url 'politicas' %}">Politicas de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="{% url 'preguntas' %}">Preguntas</a></li>
+                        <li><a href="{% url 'soporte' %}">Soporte Tecnico</a></li>
+                        <li><a href="{% url 'informes' %}">Reporte de fallas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Noticias</h4>
+                    <ul>
+                        <li><a href="{% url 'avisos' %}">Avisos</a></li>
+                        <li><a href="{% url 'actualizaciones' %}">Actualizaciones</a></li>
+                        <li><a href="{% url 'arreglos' %}">Arreglos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Apoyanos</h4>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@Lamigo2023" target="_blank" id="youtube"><i id="youtube" class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/Lamigo0010" target="_blank" id="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.patreon.com/Lamigo" target="_blank" id="patreon"><i class="fab fa-patreon"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!--Ya-->

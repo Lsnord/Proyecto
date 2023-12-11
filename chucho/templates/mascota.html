@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mascota.css' %}">
+    <title>Registro de Mascota</title>
+</head>
+<body>
+    <div class="form-container">
+        <form class="mascota-form" method="post" action="{% url 'mascota' %}">
+
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="alert error">
+                            {{ message }}
+                        </div>
+                    {% else %}
+                        <div class="alert success">
+                            {{ messages }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% csrf_token %}
+
+            <h1 class="form-pet-title">Registro de Mascota</h1>
+            
+            <label for="id_nombre_mascota">Nombre de la mascota:</label>
+            <input type="text" id="id_nombre_mascota" name="nombre_mascota" placeholder="Nombre de tu mascota" required><br>
+          
+            <label for="id_edad">Edad:</label>
+            <select id="id_edad" name="edad" required>
+                {% for choice in PET_AGES %}
+                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endfor %}
+            </select><br>                
+          
+            <label for="id_tipos">Tipo de mascota:</label>
+            <select id="id_tipos" name="tipos" required>
+                {% for choice in PET_TYPES %}
+                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endfor %}
+            </select><br>
+          
+            <label for="id_sexo">Sexo:</label>
+            <select id="id_sexo" name="sexo" required>
+                {% for choice in GENDER_PET_CHOICES %}
+                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endfor %}
+            </select><br>
+          
+            <label for="id_raza">Raza:</label>
+            <select id="id_raza" value="mascota.js" name="raza" required></select><br>
+            <script src="{% static 'js/choices.js' %}"></script>
+            <script src="{% static 'js/mascota.js' %}"></script>
+          
+            <button type="submit" class="btn">Registrar Mascota</button>
+        </form>
+    </div>
+</body>
+</html>
+

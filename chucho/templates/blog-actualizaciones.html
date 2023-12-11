@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia&display=swap" rel="stylesheet">
+    <!--iconos awesome fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog-actualizaciones.css' %}">
+    <title>Actualizaciones</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="ckbox">
+            <label for="ckbox" class="drawer">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </label>
+            <h1>L'AMIGO</h1>
+            <ul class="menu-box">
+                {% if user.is_authenticated and not user.is_staff %}
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'seccion_mascota' %}" id="amigo">Amigo</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                <li><a href="{% url 'soporte' %}">Soporte</a></li>     
+                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="{% url 'index' %}">Inicio</a></li>   
+                    <li><a href="{% url 'login2' %}">Iniciar sesión</a></li>
+                    <li><a href="{% url 'registro' %}">Registrarse</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                    <li><a href="{% url 'soporte' %}">Soporte</a></li>                
+                {% endif %}
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-cover">
+        <div class="container-cover-info">
+            <h1>Actualizaciones</h1>
+            <H2>Enterate de las ultimas novedades de L'amigo</H2>
+        </div>
+    </div>
+
+    <div class="container-content">
+        <article>
+            <h1>Muy Pronto</h1>
+            <p>
+                ¡¡Nada aun!!
+            </p>
+
+            <h1>Muy Pronto</h1>
+            <p>
+                !!Nada aun¡¡
+            </p>
+
+            <h1>Muy Pronto</h1>
+            <p>
+                ¡¡Nada aun!!
+            </p>
+
+            <h1>Muy Pronto</h1>
+            <p>
+                !!Nada aun¡¡
+            </p>
+
+            <h1>Muy Pronto</h1>
+            <p>
+                ¡¡Nada aun!!
+            </p>
+
+            <h1>Muy Pronto</h1>
+            <p>
+                !!Nada aun¡¡
+            </p>
+
+        </article>
+    
+        <div class="container-aside">
+
+            <aside>
+                <img src="{% static 'blog/aside-consejos.jpg' %}" alt="">
+                <h2>Consejos</h2>
+                <p>
+                    Aqui se te indicara las instrucciones
+                    de la app.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+            <aside>
+                <img src="{% static 'blog/aside-noticias.jpg' %}" alt="">
+                <h2>Noticias</h2>
+                <p>
+                    Enterate sobre las ultimas novedades
+                    de Lamigo.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+            <aside>
+                <img src="{% static 'blog/aside-actualizaciones.jpg' %}" alt="">
+                <h2>Actualizaciones</h2>
+                <p>
+                    Enterate sobre las ultimas Actualizaciones
+                    y contenido agregado.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+            <aside>
+                <img src="{% static 'blog/aside-cambios.jpg' %}" alt="">
+                <h2>Historial de cambios</h2>
+                <p>
+                    Informate de todos los cambios que ha
+                    tenido Lamigo.
+                </p>
+                <a href=""><button>Leer Más</button></a>
+            </aside>
+
+        </div>
+
+    </div>
+
+    <!--Sobre Nosotros-->
+
+    <section id="blog">
+        <div class="blog-heading">
+            <h3>L'AMIGO</h3>
+        </div>
+    </section>
+
+    <div class="blog-container">
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="{% static 'blog/about-about.jpg' %}" alt="">
+            </div>
+
+            <div class="blog-text">
+                <a href="#" class="blog-title">¿Quienes Somos?</a>
+                <p>
+                    Lamigo se especializa en ofrecer una plataforma web única 
+                    diseñada para simplificar y potenciar la gestión de la 
+                    información crucial de tus mascotas. Nuestra pasión 
+                    por el cuidado de los animales impulsa nuestro compromiso 
+                    de motivar y respaldar a los dueños de mascotas.
+                </p>
+                <a href="{% url 'nosotros' %}">Leer mas</a>
+            </div>
+        </div>
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="{% static 'blog/about-trabajo.jpg' %}" alt="">
+            </div>
+
+            <div class="blog-text">
+                <a href="#" class="blog-title">Trabaja con Nosotros</a>
+                <p>
+                    Comunicate con Nosotros para aplicar a vacantes
+                </p>
+                <a href="#">Leer mas</a>
+            </div>
+        </div>
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="{% static 'blog/about-contacto.jpg' %}" alt="">
+            </div>
+
+            <div class="blog-text">
+                <a href="#" class="blog-title">Contactanos</a>
+                <p>
+                    Nos puedes escribir para sugerencias o reportes
+                    de errores que haya en la plataforma
+                </p>
+                <a href="{% url 'contacto' %}">Leer mas</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Compañia</h4>
+                    <ul>
+                        <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                        <li><a href="{% url 'servicios' %}">Nuestros servicios</a></li>
+                        <li><a href="{% url 'politicas' %}">Politicas de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="{% url 'preguntas' %}">Preguntas</a></li>
+                        <li><a href="{% url 'soporte' %}">Soporte Tecnico</a></li>
+                        <li><a href="{% url 'informes' %}">Reporte de fallas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Noticias</h4>
+                    <ul>
+                        <li><a href="{% url 'avisos' %}">Avisos</a></li>
+                        <li><a href="{% url 'actualizaciones' %}">Actualizaciones</a></li>
+                        <li><a href="{% url 'arreglos' %}">Arreglos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Apoyanos</h4>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@Lamigo2023" target="_blank" id="youtube"><i id="youtube" class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/Lamigo0010" target="_blank" id="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.patreon.com/Lamigo" target="_blank" id="patreon"><i class="fab fa-patreon"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!--Ya-->

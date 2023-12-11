@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--fuentes de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia&display=swap" rel="stylesheet">
+    <!--iconos awesome fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="shortcut icon" href="logos/512w.png">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/seccion-mascota.css' %}">
+    <title>Index</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="ckbox">
+            <label for="ckbox" class="drawer">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </label>
+            <h1>L'AMIGO</h1>
+            <ul class="menu-box">
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'citas' %}">Citas</a></li>
+                <li><a href="{% url 'gastos' %}">Gastos</a></li>
+                <li><a href="{% url 'mascota' %}">Mascota</a></li>
+                <li><a href="{% url 'examenes' %}">Examenes</a></li>
+                <li><a href="{% url 'tratamientos' %}">Tratamientos</a></li>
+                <li><a href="{% url 'terapias' %}">Terapias</a></li>
+                <li><a href="{% url 'cirugias' %}">Cirugias</a></li>
+                <li><a href="{% url 'historial' %}">Historial</a></li>
+                <!--Boton para mostrar historial en la misma pagina-->
+                <!--<button id="historialBtn">Historial</button>-->
+            </ul>
+        </nav>
+    </header>
+    
+    <img src="{% static 'imgs/back.jpg' %}" alt="">
+
+    <div id="historialDiv">
+        <button id="cerrarBtn">&times;</button>
+        <!--Botones de Historial-->
+        <button class="largeButton">Mascotas</button>
+        <button class="largeButton">Citas</button>
+        <button class="largeButton">Gastos</button>
+        <button class="largeButton">Examenes</button>
+        <button class="largeButton">Tratamientos</button>
+        <button class="largeButton">Terapias</button>
+        <button class="largeButton">Cirugias</button>
+        
+        <div id="SubDiv">
+            <!--Aqui-->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var historialBtn = document.getElementById('historialBtn');
+            var historialDiv = document.getElementById('historialDiv');
+            var cerrarBtn = document.getElementById('cerrarBtn');
+            var gastosBtn = document.getElementById('gastosBtn');
+            var subDiv = document.getElementById('SubDiv');
+    
+            function toggleHistorial() {
+                if (historialDiv.style.display === 'block') {
+                    historialDiv.style.display = 'none';
+                    subDiv.innerHTML = ''; // Limpiar el contenido al cerrar
+                } else {
+                    historialDiv.style.display = 'block';
+                }
+            }
+    
+            historialBtn.addEventListener('click', toggleHistorial);
+            cerrarBtn.addEventListener('click', toggleHistorial);
+        });
+    </script>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Compañia</h4>
+                    <ul>
+                        <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                        <li><a href="{% url 'servicios' %}">Nuestros servicios</a></li>
+                        <li><a href="{% url 'politicas' %}">Politicas de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="{% url 'preguntas' %}">Preguntas</a></li>
+                        <li><a href="{% url 'soporte' %}">Soporte Tecnico</a></li>
+                        <li><a href="{% url 'informes' %}">Reporte de fallas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Noticias</h4>
+                    <ul>
+                        <li><a href="{% url 'avisos' %}">Avisos</a></li>
+                        <li><a href="{% url 'actualizaciones' %}">Actualizaciones</a></li>
+                        <li><a href="{% url 'arreglos' %}">Arreglos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Apoyanos</h4>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@Lamigo2023" target="_blank" id="youtube"><i id="youtube" class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/Lamigo0010" target="_blank" id="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.patreon.com/Lamigo" target="_blank" id="patreon"><i class="fab fa-patreon"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<!--Ya-->

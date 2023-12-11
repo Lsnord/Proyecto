@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/citas.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <form method="post" action="{% url 'citas' %}">
+
+            {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="alert error">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+
+                {% csrf_token %}
+
+                <label for="id_mascota">Seleccione la mascota:</label>
+                <select id="id_mascota" name="mascota" required>
+                    {% for mascota in user_pets %}
+                        <option value="{{ mascota.id }}">{{ mascota.nombre_mascota }}</option>
+                    {% endfor %}
+                </select><br>                
+
+                <label for="id_tipos">Tipo de cita:</label>
+                <select id="id_tipos" name="tipos" required>
+                {% for choice in TYPES_CITES %}
+                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endfor %}
+                </select><br>
+
+                <label for="id_nombre">Nombre:</label><br><br>
+                <input type="text" id="id_nombre" name="nombre" required><br><br>
+
+                <label for="id_fecha">Fecha de programacion:</label><br><br>
+                <input type="date" id="id_fecha" name="fecha" required><br><br>
+
+                <label for="id_costo">Costo:</label><br>
+                <input type="number" id="id_costo" name="costo" required>
+                
+                <button type="submit" class="btn">Registrar Cita </button>
+
+            </form>
+        </form> 
+    </div>
+</body>
+</html>

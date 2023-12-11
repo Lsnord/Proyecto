@@ -1,0 +1,60 @@
+<!--gestionar_gastos-->
+<div class="history-container">
+    <div class="boxes">
+        <h2>Gastos</h2>
+
+        {% if user_bills %}
+            <ul>
+                {% for bill in user_bills %}
+                    <li>
+                        <div class="bills">
+                            Nombre: {{ bill.nombre }}
+                        </div>
+
+                        <div class="bills">
+                            Tipo: {{ bill.tipos }}
+                        </div>
+
+                        <div class="bills">
+                            Fecha: {{ bill.fecha }} 
+                        </div>
+
+                        <div class="bills">
+                            Costo: {{ bill.costo }}
+                        </div><br>
+
+                        <div class="bills">
+                            Mascota: {{ bill.mascota.nombre_mascota }}
+                        </div>
+
+                        <div class="center-container">
+                            <a href="{% url 'editar_gasto' bill.id %}" class="edit-link">Editar Gasto</a>
+                            <a href="{% url 'eliminar_gasto' bill.id %}" class="delete-link">Eliminar Gasto</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="descripcion-nula">No hay registros de gastos.</p>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    // Agregar funciones JavaScript para manejar la selección, edición y eliminación
+    document.querySelectorAll('.edit-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            // Agregar lógica para editar el registro con el ID correspondiente
+            alert('Editar: ' + this.getAttribute('href'));
+        });
+    });
+
+    document.querySelectorAll('.delete-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            // Agregar lógica para eliminar el registro con el ID correspondiente
+            alert('Eliminar: ' + this.getAttribute('href'));
+        });
+    });
+</script>
