@@ -1,0 +1,72 @@
+body {
+    background-image: url("/static/imgs/login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 10em;
+    min-height: 100vh;
+}
+
+.container {
+    width: 300px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffffff;
+    transition: all .5s ease-in;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+form {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.error-message {
+    background-color: #ffcccc;
+    color: #ff0000;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+#submit-btn{
+    color: #fff;
+    background-color: #000000;
+    transition: all .3s ease-in;
+    margin-top: 10px;
+
+}
+
+#submit-btn:hover{
+    color: #000000;
+    background-color: #0b8a00;
+    transition: all .3s ease-in;
+
+}
+
+a{
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+a:hover{
+    text-decoration: none;
+    list-style: none;
+    color: #df9100;
+    transition: all .3s ease;
+}

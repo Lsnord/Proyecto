@@ -1,0 +1,433 @@
+:root{
+    --title: #000000;
+    --primary:#df9100;
+    --footer: #11112a;
+    --secundary:#003591;
+    --background:rgba(17, 17, 42,0.8);
+    --black-text: #000000;
+    --white-text:#ffffff;
+    --black-text-hover: #ff7b00;
+    --button-hover:#38755a;
+    --button: #204132;
+    --button2: #0400ff;
+    --button2-hover: #009c4e;
+
+    /*Colores de redes sociales*/
+    --facebook: #003591;
+    --instagram: #d400ff;
+    --youtube: #ff0000;
+    --twitter: #0084ff;
+    --patreon: #ff6600;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+body{
+    background-image: url("/static/imgs/historial-back.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: contain;
+    background-position: center;
+    transition: background 1s ease-in-out;
+}
+
+/*Nav y menu lateral*/
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: var(--primary);
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2;
+}
+
+header h1{
+    font-family: 'Kalnia', serif;
+    color: var(--title);
+    font-size: 2rem;
+    letter-spacing: .3rem;
+    float: left;
+}
+header h1 {
+    cursor: default ;
+}
+
+.box-main{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    border-right: solid .1rem rgba(61, 61, 61, 0.41);
+}
+
+nav ul li:last-child{
+    border-right: none;
+}
+
+nav ul li a {
+    font-family: 'Arial Narrow';
+    color: var(--black-text);
+    font-weight: 550;
+    font-size: 1.2rem;
+    padding: .8rem 1rem;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover{
+    color: var(--white-text);
+    text-shadow: 4px 4px 5px #000000;
+    transition: all .3s;
+    text-decoration: underline;
+    text-decoration-color: var(--white-text);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
+    position: relative;
+}
+
+.drawer{
+    color: var(--black-text);
+    float: left;
+    cursor: pointer;
+    display: none;
+    margin-left: 1rem;
+    border: solid .1rem var(--black-text);
+    padding: .2rem;
+    border-radius: .1rem;
+    z-index: 2;
+}
+
+#ckbox{
+    display: none;
+}
+
+/*Termina Aqui*/
+
+/*Menu Lateral*/
+.drawer{
+    color: var(--black-text);
+    float: left;
+    cursor: pointer;
+    display: none;
+    margin-left: 1rem;
+    border: solid .1rem var(--black-text);
+    padding: .2rem;
+    border-radius: .1rem;
+}
+
+#ckbox{
+    display: none;
+}
+
+/*Historial*/
+
+.history-container{
+    margin-top: 146px;
+}
+
+.history-container h2{
+    text-align: center;
+    margin-bottom: 28px;
+    margin-left: 16px auto;
+    color: var(--black-text)
+}
+
+.history-container .descripcion-nula{
+    cursor: default;
+    text-align: center;
+    font-weight: 600;
+    color: var(--black-text)
+}
+
+.history-container .descripcion-nula:hover{
+    background-color: #af0000;
+    color: #00ff80;
+    text-shadow: 4px 4px 5px #000000;
+    transition: all .3s ease;
+}
+
+.history-container li .bills{
+    cursor: default;
+    color: var(--white-text);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.history-container li .bills:hover{
+    color: var(--black-text);
+    background-color: rgba(255, 196, 0, 0.8);
+    transition: all .3s ease;
+}
+
+.history-container li .cites{
+    cursor: default;
+    color: var(--white-text);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.history-container li .cites:hover{
+    color: var(--black-text);
+    background-color: rgba(0, 255, 242, 0.8);
+    transition: all .3s ease;
+}
+
+.history-container li .examns{
+    cursor: default;
+    color: var(--white-text);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.history-container li .examns:hover{
+    color: var(--black-text);
+    background-color: rgba(9, 255, 0, 0.8);
+    transition: all .3s ease;
+}
+
+
+.history-container li .treatments{
+    cursor: default;
+    color: var(--white-text);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.history-container li .treatments:hover{
+    color: var(--black-text);
+    background-color: rgba(162, 0, 255, 0.8);
+    transition: all .3s ease;
+}
+
+.history-container li .terapies{
+    cursor: default;
+    color: var(--white-text);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.history-container li .terapies:hover{
+    color: var(--black-text);
+    background-color: rgba(0, 217, 255, 0.8);
+    transition: all .3s ease;
+}
+
+.history-container li .surgerys{
+    cursor: default;
+    color: var(--white-text);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.history-container li .surgerys:hover{
+    color: var(--black-text);
+    background-color: rgba(0, 255, 234, 0.8);
+    transition: all .3s ease;
+}
+
+.boxes{
+    max-width: 948px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #000000;
+    margin: 25px;
+}
+
+.boxes:hover{
+    background-color: rgba(185, 185, 185, 0.5);
+    transition: all .8s ease;
+}
+
+.history-container li{
+    color: #000000;
+    font-weight: 550;
+}
+
+.history-container a{
+    color: var(--white-text);
+    border-radius: 5px;
+    padding: 12px 21px ;
+    margin: 16px auto;
+    text-decoration: none;
+    list-style: none;
+    font-weight: 550;
+    background-color: rgb(0, 0, 0);
+}
+
+.history-container a:hover{
+    color: var(--black-text);
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-container a:hover{
+    background-color: rgb(0, 216, 97);
+    transition: all .3s ease;
+}
+/**/
+
+/*Footer*/
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer{
+    background-color: var(--footer);
+    padding: 80px 0;
+}
+
+.footer-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-links{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-links h4{
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 500;
+    border-bottom: 2px solid #df9100;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-links ul li a{
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 15px;
+    transition: all .3s ease;
+}
+
+.footer-links ul li a:hover{
+    color: #df9100;
+    padding-left: 6px;
+}
+
+.social-links a{
+    display: inline-block;
+    min-height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all .5s ease;
+}
+
+.social-links a#facebook:hover {
+    background-color: var(--facebook);
+}
+
+.social-links a#instagram:hover {
+    background-color: var(--instagram);
+}
+
+.social-links a#youtube:hover {
+    background-color: var(--youtube);
+}
+
+.social-links a#twitter:hover {
+    background-color: var(--twitter);
+}
+
+.social-links a#patreon:hover {
+    background-color: var(--patreon);
+}
+
+@media(max-width:1024px){
+
+    nav{
+        justify-content: flex-start;
+    }
+
+    nav ul li a{
+        color: var(--white-text);
+    }
+
+    nav ul li a:hover{
+        color: var(--primary);
+        text-shadow: 4px 4px 5px var(--black-text);
+    }
+
+    .drawer{
+        display: block;
+    }
+
+    nav h1{
+        margin-left: 1rem;
+    }
+
+    .blog-box{
+        width: 300px;
+
+    }
+
+    ul{
+        position: fixed;
+        width: 50%;
+        height: 100vh;
+        background-color: var(--background);
+        top: 10vh;
+        left: -100%;
+        text-align: left;
+        transition: all .5s;
+        display: flex;
+        flex-direction: column;
+        align-content: stretch;
+    }
+
+    nav ul li{
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        border-bottom: solid .1rem rgba(201, 196, 196, 0.4) ;
+    }
+
+    ul li a{
+        color: var(--white-text);
+    }
+
+    #ckbox:checked ~ .menu-box{
+        left: 0;
+    }
+
+    .image{
+        display: none;
+    }
+
+    .footer-row{
+        text-align: center;
+    }
+    .footer-links{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+/**/
