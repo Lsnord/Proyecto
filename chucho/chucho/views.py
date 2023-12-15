@@ -16,8 +16,9 @@ from django.http import HttpResponseRedirect
 ##
 
 #forms
+
 from .forms import CitasForm
-from .forms import GastoForm
+from .forms import GastoForm, CitasForm, ExamenesForm, TratamientosForm, TerapiasForm, CirugiasForm
 
 #Ping de redireccion
 import time
@@ -138,6 +139,29 @@ def logut_staff(request):
 
 #################### Vistas de la mascota ########################################
 
+## Historial
+
+@login_required
+def historial(request):
+    
+    user_bills = gastos.objects.filter(mascota__user=request.user)
+    user_cites = citas.objects.filter(mascota__user=request.user)
+    user_examns = examenes.objects.filter(mascota__user=request.user)
+    user_treatments = tratamientos.objects.filter(mascota__user=request.user)
+    user_terapies = terapias.objects.filter(mascota__user=request.user)
+    user_surgerys = cirugias.objects.filter(mascota__user=request.user)
+    
+    return render(request, 'historial.html', {
+        'user_bills': user_bills,
+        'user_cites': user_cites,
+        'user_examns': user_examns,
+        'user_treatments': user_treatments,
+        'user_terapies': user_terapies,
+        'user_surgerys': user_surgerys,
+    })
+
+
+
 ## PAGINA PRINCIPAL DE MASCOTA
 
 def seccion_mascota(request):
@@ -205,6 +229,28 @@ def gastos_view(request):
     return render(request, 'gastos.html', {'TYPES_BILLS': TYPES_BILLS, 'user_pets': user_pets, 'error_message': error_message})
 #
 
+## CRUD_gasto ##
+
+@login_required
+def modificar_gasto(request, id):
+    gasto = get_object_or_404(gastos, id=id)
+    
+    if request.method == 'POST':
+        formulario = GastoForm(request.POST, instance=gasto)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('historial')
+    else:
+        formulario = GastoForm(instance=gasto)
+
+    return render(request, 'crud/modificar_gasto.html', {'form': formulario})
+
+@login_required
+def eliminar_gasto(request, id):
+    gasto = get_object_or_404(gastos, id=id)
+    gasto.delete()
+    return redirect(to='historial')
+
 # FORMULARIO DE CITAS DE MASCOTA
 @login_required
 def citas_view(request):
@@ -237,6 +283,28 @@ def citas_view(request):
     user_pets = mascota.objects.filter(user=request.user)
     return render(request, 'citas.html', {'TYPES_CITES': TYPES_CITES, 'user_pets': user_pets, 'error_message': error_message})
 
+## CRUD_cita ##
+
+@login_required
+def modificar_cita(request, id):
+    cita = get_object_or_404(citas, id=id)
+    
+    if request.method == 'POST':
+        formulario = CitasForm(request.POST, instance=cita)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('historial')
+    else:
+        formulario = CitasForm(instance=cita)
+
+    return render(request, 'crud/modificar_cita.html', {'form': formulario})
+
+@login_required
+def eliminar_cita(request, id):
+    cita = get_object_or_404(citas, id=id)
+    cita.delete()
+    return redirect(to='historial')
+
 # FORMULARIO DE EXAMENES DE MASCOTA
 @login_required
 def examenes_view(request):
@@ -268,6 +336,28 @@ def examenes_view(request):
 
     return render(request, 'examenes.html', {'TYPES_EXAMNS': TYPES_EXAMNS, 'user_pets': user_pets, 'error_message': error_message})
 
+## CRUD_examenes ##
+
+@login_required
+def modificar_examen(request, id):
+    examen = get_object_or_404(examenes, id=id)
+    
+    if request.method == 'POST':
+        formulario = ExamenesForm(request.POST, instance=examen)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('historial')
+    else:
+        formulario = ExamenesForm(instance=examen)
+
+    return render(request, 'crud/modificar_examen.html', {'form': formulario})
+
+@login_required
+def eliminar_examen(request, id):
+    examen = get_object_or_404(examenes, id=id)
+    examen.delete()
+    return redirect(to='historial')
+
 # FORMULARIO DE TRATAMIENTOS DE MASCOTA
 
 def tratamientos_view(request):
@@ -298,6 +388,28 @@ def tratamientos_view(request):
                 return redirect('seccion_mascota')
 
     return render(request, 'tratamientos.html', {'user_pets': user_pets, 'error_message': error_message})
+
+## CRUD_tratamientos ##
+
+@login_required
+def modificar_tratamiento(request, id):
+    tratamiento = get_object_or_404(tratamientos, id=id)
+    
+    if request.method == 'POST':
+        formulario = TratamientosForm(request.POST, instance=tratamiento)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('historial')
+    else:
+        formulario = TratamientosForm(instance=tratamiento)
+
+    return render(request, 'crud/modificar_tratamiento.html', {'form': formulario})
+
+@login_required
+def eliminar_tratamiento(request, id):
+    tratamiento = get_object_or_404(tratamientos, id=id)
+    tratamiento.delete()
+    return redirect(to='historial')
 
 # FORMULARIO DE TERAPIAS DE MASCOTA
 
@@ -334,6 +446,28 @@ def terapias_view(request):
 
     return render(request, 'terapias.html', {'user_pets': user_pets})
 
+## CRUD_terapias ##
+
+@login_required
+def modificar_terapia(request, id):
+    terapia = get_object_or_404(terapias, id=id)
+    
+    if request.method == 'POST':
+        formulario = TerapiasForm(request.POST, instance=terapia)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('historial')
+    else:
+        formulario = TerapiasForm(instance=terapia)
+
+    return render(request, 'crud/modificar_terapia.html', {'form': formulario})
+
+@login_required
+def eliminar_terapia(request, id):
+    terapia = get_object_or_404(terapias, id=id)
+    terapia.delete()
+    return redirect(to='historial')
+
 
 # FORMULARIO DE CIRUGIAS DE MASCOTA
 
@@ -366,43 +500,28 @@ def cirugias_view(request):
 
     return render(request, 'cirugias.html', {'TYPES_SURGERYS': TYPES_SURGERYS, 'user_pets': user_pets, 'error_message': error_message})
 
-################################## Historial ##################################################
+## CRUD_terapias ##
 
 @login_required
-def historial(request):
+def modificar_cirugia(request, id):
+    cirugia = get_object_or_404(cirugias, id=id)
     
-    user_bills = gastos.objects.filter(mascota__user=request.user)
-    user_cites = citas.objects.filter(mascota__user=request.user)
-    user_examns = examenes.objects.filter(mascota__user=request.user)
-    user_treatments = tratamientos.objects.filter(mascota__user=request.user)
-    user_terapies = terapias.objects.filter(mascota__user=request.user)
-    user_surgerys = cirugias.objects.filter(mascota__user=request.user)
-    
-    return render(request, 'historial.html', {
-        'user_bills': user_bills,
-        'user_cites': user_cites,
-        'user_examns': user_examns,
-        'user_treatments': user_treatments,
-        'user_terapies': user_terapies,
-        'user_surgerys': user_surgerys,
-    })
-
-##
-
-## redireccion editar gastos
-def gestionar_gastos(request):
-    user_bills = gastos.objects.filter(usuario=request.user)  # Ajusta esto según tu modelo de gastos
-
     if request.method == 'POST':
-        form = GastoForm(request.POST)
-        if form.is_valid():
-            # Guardar el formulario y redirigir a la página de gastos
-            form.save()
-            return redirect('gestionar_gastos')
+        formulario = CirugiasForm(request.POST, instance=cirugia)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('historial')
     else:
-        form = GastoForm()
+        formulario = CirugiasForm(instance=cirugia)
 
-    return render(request, 'gestionar_gastos.html', {'user_bills': user_bills, 'form': form})
+    return render(request, 'crud/modificar_cirugia.html', {'form': formulario})
+
+@login_required
+def eliminar_cirugia(request, id):
+    cirugia = get_object_or_404(cirugias, id=id)
+    cirugia.delete()
+    return redirect(to='historial')
+
 
 
 
@@ -515,6 +634,16 @@ def informes_errores(request):
         form=forminformes()
 
     return render(request,"informes-errores.html",{"form":form})
+
+
+#errores
+
+def handler404(request, exception):
+    return render(request, '404.html', status=404)
+
+def handler500(request):
+    return render(request, '500.html', status=500)
+
 
 
 

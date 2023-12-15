@@ -11,8 +11,8 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from crispy_forms.bootstrap import FormActions
 from django import forms
-from core.models import citas
-from core.models import gastos
+from core.models import gastos, citas, examenes, tratamientos, terapias, cirugias
+
 ##################### Usuario Forms ###########################
 
 ## Creacion de Cuenta
@@ -83,14 +83,38 @@ class forminformes(forms.Form):
 
 #Historiales
 
+#Gastos
+class GastoForm(forms.ModelForm):
+    class Meta:
+        model = gastos
+        fields = ['nombre', 'tipos', 'fecha', 'costo', 'mascota']
+
 #Citas
 class CitasForm(forms.ModelForm):
     class Meta:
         model = citas
         fields = ['nombre', 'tipos', 'fecha', 'costo', 'mascota']
         
-#Gastos
-class GastoForm(forms.ModelForm):
+#Examenes
+class ExamenesForm(forms.ModelForm):
     class Meta:
-        model = gastos
+        model = examenes
+        fields = ['nombre', 'tipos', 'fecha', 'costo', 'mascota']
+        
+#Tratamientos 
+class TratamientosForm(forms.ModelForm):
+    class Meta:
+        model = tratamientos
         fields = ['nombre', 'fecha', 'costo', 'mascota']
+        
+#Terapias
+class TerapiasForm(forms.ModelForm):
+    class Meta:
+        model = terapias
+        fields = ['nombre', 'fecha', 'costo', 'mascota']
+        
+#Cirugias
+class CirugiasForm(forms.ModelForm):
+    class Meta:
+        model = cirugias
+        fields = ['nombre', 'tipos', 'fecha', 'costo', 'mascota']                       

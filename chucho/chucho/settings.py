@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-)#cusg#$x!ikzbit4!3np87q38lq-(*@u$t+q(60+2*(-^$qr=
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'colorfield',
     'core',
-    'reports',
 
 ]
 
@@ -53,7 +52,7 @@ ROOT_URLCONF = 'chucho.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -6,7 +6,14 @@ from chucho import settings
 
 from chucho import views
 
+from .views import handler404, handler500, modificar_gasto, modificar_cita, modificar_examen, modificar_tratamiento, modificar_terapia, modificar_cirugia
+from .views import eliminar_gasto, eliminar_cita, eliminar_examen, eliminar_tratamiento, eliminar_terapia, eliminar_cirugia
+
 urlpatterns = [
+    
+## app imports
+
+    path('', include('core.urls')),
 
 ### Admin ###
     path('', views.index, name='index'),
@@ -47,11 +54,27 @@ urlpatterns = [
     #Historial CRUD
     path('historial/', views.historial, name='historial'),
     ## CRUD EDIT ##
-    # gastos
-    path('gestionar-g/', views.gestionar_gastos, name='gestionar-g'),
+    # modificacion
+    path('modificar_gasto/<int:id>/', modificar_gasto, name='modificar_gasto'),
+    path('modificar_cita/<int:id>/', modificar_cita, name='modificar_cita'),
+    path('modificar_examen/<int:id>/', modificar_examen, name='modificar_examen'),
+    path('modificar_tratamiento/<int:id>/', modificar_tratamiento, name='modificar_tratamiento'),
+    path('modificar_terapia/<int:id>/', modificar_terapia, name='modificar_terapia'),
+    path('modificar_cirugia/<int:id>/', modificar_cirugia, name='modificar_cirugia'),
     
-    ##Reports
-    path('reports/', include('reports.urls')),
+    #eliminacion
+    path('eliminar_gasto/<int:id>/', eliminar_gasto, name='eliminar_gasto'),
+    path('eliminar_cita/<int:id>/', eliminar_cita, name='eliminar_cita'),
+    path('eliminar_examen/<int:id>/', eliminar_examen, name='eliminar_examen'),
+    path('eliminar_tratamiento/<int:id>/', eliminar_tratamiento, name='eliminar_tratamiento'),
+    path('eliminar_terapia/<int:id>/', eliminar_terapia, name='eliminar_terapia'),
+    path('eliminar_cirugia/<int:id>/', eliminar_cirugia, name='eliminar_cirugia'),
+    
+    
+
+
+    
     
     
 ]
+
